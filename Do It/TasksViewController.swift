@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TasksViewController.swift
 //  Do It
 //
 //  Created by Colleen Ng on 9/13/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,6 +60,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func plusTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! CreateTaskViewController
+        nextVC.previousVC = self
     }
     
 }
